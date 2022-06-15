@@ -1,6 +1,6 @@
 <script lang="ts">
-import NavBarLink from "./NavBar/NavBarLink.vue";
-import CustomButtom from "./Shared/CustomButtom.vue";
+import NavBarLink from "./NavBarLink.vue";
+import CustomButtom from "../Shared/CustomButtom.vue";
 export default {
     data: () => ({
     }),
