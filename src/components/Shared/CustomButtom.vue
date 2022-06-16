@@ -1,17 +1,36 @@
 <script setup lang="ts">
+
 const props = defineProps({
   title: String,
-  event: Function
+  rounded: Boolean,
+  color: { type: String, default: "bg-orange" },
+  textColor: { type: String, default: "text-white" },
 });
+
+function getClass(): String {
+  
+  // default button class
+  let cssClass = "font-body font-bold py-2 px-4";
+
+  // button background color
+  cssClass = cssClass + ' ' + props.color;
+  
+  // button text color
+  cssClass = cssClass + ' ' + props.textColor;
+
+  // button rounded property
+  props.rounded ? cssClass = cssClass + ' ' + 'rounded': '';
+
+  return cssClass;
+}
+
 </script>
 
 <template>
-  <button
-    class="bg-orange text-white font-body font-bold rounded-full py-2 px-4"
-    @click="$emit('event')"
-  >
-    {{title}}
+  <button :class="getClass()">
+    {{ props.title }}
   </button>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
